@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}
+Add New Entry
+{% endblock %}
+{% block content %}
+        <form action="{{ url_for('addrec') }}" method="POST">
+            <h3>Please Add the New Record:</h3>
+            Name<br>
+            <input type="text" name="name" /><br>
+
+            ID<br>
+            <input type="text" name="id" /><br>
+
+            Score<br>
+            <input type="text" name="score" /><br>
+
+            <input type="submit" value="Submit" /><br>
+        </form>
+{% endblock %}

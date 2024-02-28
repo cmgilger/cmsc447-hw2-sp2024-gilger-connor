@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}
+List Page
+{% endblock %}
+{% block content %}
+        <table border="1px">
+            <thead>
+                <td><strong>User #</strong></td>
+                <td><strong>Name</strong></td>
+                <td><strong>User ID</strong></td>
+                <td><strong>Score</strong></td>
+                <td></td>
+                <td></td>
+            </thead>
+
+            {% for row in rows %}
+            <tr>
+                <td>{{ row["rowid"] }}</td>
+                <td>{{ row["one"] }}</td>
+                <td> {{ row["two"]}}</td>
+                <td>{{ row["three"] }}</td>
+                <td><form action="{{url_for('edit')}}" method="POST"><input type="hidden" name="id" value="{{ row['rowid'] }}"><input type="submit" value="Edit"></form> </td>
+                <td><form onsubmit="return confirm('Are you sure you want to DELETE this User from the Database?');" action="{{url_for('delete')}}" method="POST"><input type="hidden" name="id" value="{{ row['rowid'] }}"><input type="submit" value="Delete"></form> </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+{% endblock %}

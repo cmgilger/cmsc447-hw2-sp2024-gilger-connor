@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}
+Edit Student
+{% endblock %}
+{% block content %}
+        <h1>Edit Student Record</h1>
+        {% for row in rows %}
+        <form action="{{ url_for('editrec') }}" method="POST">
+            <h3 style="color:blue">Student ID: {{ row['rowid']}}</h3>
+            <input type="hidden" name="rowid" value="{{ row['rowid'] }}">
+            Name<br>
+            <input type="text" name="nm" value="{{ row['one'] }}"/><br>
+
+            ID<br>
+            <input type="text" name="user_id" value="{{ row['two'] }}"/><br>
+
+            Score<br>
+            <input type="text" name="score" value="{{ row['three'] }}"/><br>
+
+            <input type="submit" value="Submit" /><br>
+        </form>
+        {% endfor %}
+{% endblock %}
